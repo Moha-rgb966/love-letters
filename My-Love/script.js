@@ -29,22 +29,19 @@ tabButtons.forEach(button => {
 });
 
 // --------- 3. فتح وإغلاق الرسالة (المودال) --------- //
-const modalClose = document.querySelector('.modal-close-button');
-const mainContent = document.getElementById("main-content");
 const startButton = document.getElementById("start-button");
+const mainContent = document.getElementById("main-content");
 
 if (startButton) {
-  startButton.addEventListener('click', () => {
-    mainContent.classList.remove("hidden");
+  startButton.addEventListener("click", () => {
+    // إظهار محتوى الرسالة
+    if (mainContent) {
+      mainContent.classList.remove("hidden");
+    }
+    // إخفاء زر الفتح نفسه فقط بعد الضغط عليه
+    startButton.style.display = "none";
   });
 }
-
-if (modalClose) {
-  modalClose.addEventListener('click', () => {
-    mainContent.classList.add("hidden");
-  });
-}
-
 // --------- 4. العداد الزمني --------- //
 function updateDayCounter() {
   const startDate = new Date(2025, 11, 27, 10, 34, 15);
