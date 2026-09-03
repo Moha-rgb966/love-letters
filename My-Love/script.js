@@ -5,21 +5,25 @@ if (userPassword !== "ro7 2lb m7md") {
   document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20%'>كلمة السر خطأ</h2>";
 }
 
-// --------- 2. التنقل بين التبويبات (الزراير) --------- //
+// --------- التنقل بين التبويبات (الزراير) --------- //
 const tabButtons = document.querySelectorAll('.tab-menu__button');
-const tabPanels = document.querySelectorAll('.tab-panel');
+const tabSections = document.querySelectorAll('main section');
 
-tabButtons.forEach((button, index) => {
+tabButtons.forEach(button => {
   button.addEventListener('click', () => {
-    // إزالة التحديد عن كل الأزرار
-    tabButtons.forEach(btn => btn.classList.remove('is-active'));
-    // إخفاء جميع الأقسام
-    tabPanels.forEach(panel => panel.classList.remove('is-active'));
+    const targetId = button.getAttribute('data-target');
 
-    // تفعيل الزر المضروب عليه والقسم المقابل له
+    // إزالة التحديد عن كل الأزرار والأقسام
+    tabButtons.forEach(btn => btn.classList.remove('is-active', 'active'));
+    tabSections.forEach(section => section.classList.remove('is-active', 'active'));
+
+    // تفعيل الزر المضروب عليه
     button.classList.add('is-active');
-    if (tabPanels[index]) {
-      tabPanels[index].classList.add('is-active');
+
+    // إظهار القسم المطلوب فقط
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.classList.add('active');
     }
   });
 });
