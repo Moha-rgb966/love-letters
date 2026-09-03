@@ -31,7 +31,7 @@ modalClose.addEventListener('click', () => {
 
 // --------- CONTADOR --------- //
 function updateDayCounter() {
-  const startDate = new Date(2024, 0, 1, 0, 0, 0); // 01/01/2024 (mês começa em 0 → janeiro)
+  const startDate = new Date(2025, 11, 27, 10, 34, 15); // 01/01/2024 (mês começa em 0 → janeiro)
   const now = new Date();
 
   // Diferença total em milissegundos
@@ -125,3 +125,8 @@ createNavigator(".cartas", ".cartas-nav");
 
 // Navegação para Leia-me
 createNavigator(".leias", ".leias-nav");
+const userPassword = prompt("دخلي كلمه السر:");
+if (userPassword !== "ro7 2lb m7md") {
+  alert("كلمه السر غير صحيحه!");
+  document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20%'>كلمه السر خطأو</h2>"; 
+                                                                                                      { 
