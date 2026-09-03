@@ -27,14 +27,24 @@
       <p>ااتعمل مخصوص عشان خاطر حباحيبو.</p>
       
       <nav aria-label="الأقسام">
-        <ul class="tab-menu">
-          <li class="tab-menu__item"><button type="button" class="tab-menu__button is-active">الرئيسية</button></li>
-          <li class="tab-menu__item"><button type="button" class="tab-menu__button">ذكرياتنا</button></li>
-          <li class="tab-menu__item"><button type="button" class="tab-menu__button">اقرئي هذا عندما...</button></li>
-          <li class="tab-menu__item"><button type="button" class="tab-menu__button">الرسائل</button></li>
-          <li class="tab-menu__item"><button type="button" class="tab-menu__button">العداد</button></li>
-        </ul>
-      </nav>
+  <ul class="tab-menu">
+    <li class="tab-menu__item">
+      <button type="button" class="tab-menu__button is-active" data-target="home">الرئيسية</button>
+    </li>
+    <li class="tab-menu__item">
+      <button type="button" class="tab-menu__button" data-target="memories">ذكرياتنا</button>
+    </li>
+    <li class="tab-menu__item">
+      <button type="button" class="tab-menu__button" data-target="when">اقرئي هذا عندما...</button>
+    </li>
+    <li class="tab-menu__item">
+      <button type="button" class="tab-menu__button" data-target="letters">الرسائل</button>
+    </li>
+    <li class="tab-menu__item">
+      <button type="button" class="tab-menu__button" data-target="counter">العداد</button>
+    </li>
+  </ul>
+</nav>
     </header>
 <main>
     <!-- قسم الرئيسية (نشط افتراضياً) -->
