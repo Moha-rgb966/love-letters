@@ -121,3 +121,25 @@ if (userPassword !== "ro7 2lb m7md") {
   alert("كلمة السر غير صحيحة!");
   document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20%'>كلمة السر خطأ</h2>";
 }
+const tabButtons = document.querySelectorAll('.tab-menu__button');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // 1. إخفاء جميع الأقسام
+    tabContents.forEach(content => content.classList.remove('active'));
+    
+    // 2. إزالة التحديد عن جميع الأزرار
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+
+    // 3. إظهار القسم المطلوب بناءً على data-target للزر
+    const targetId = button.getAttribute('data-target');
+    const targetSection = document.getElementById(targetId);
+    
+    if (targetSection) {
+      targetSection.classList.add('active');
+    }
+    
+    button.classList.add('active');
+  });
+});
