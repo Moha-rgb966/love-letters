@@ -6,11 +6,9 @@ const tabs = {
     for (let i = 0; i < this.$buttons.length; i++) {
       let button = this.$buttons[i];
       let panel = this.$panels[i];
-
       button.addEventListener('click', () => {
         document.querySelector('.tab-menu__button.is-active').classList.remove('is-active');
         document.querySelector('.tab-panel.is-active').classList.remove('is-active');
-
         button.classList.add('is-active');
         panel.classList.add('is-active');
       });
@@ -31,13 +29,11 @@ modalClose.addEventListener('click', () => {
 
 // --------- CONTADOR --------- //
 function updateDayCounter() {
-  const startDate = new Date(2025, 11, 27, 10, 34, 15); // 01/01/2024 (mês começa em 0 → janeiro)
+  const startDate = new Date(2025, 11, 27, 10, 34, 15);
   const now = new Date();
-
-  // Diferença total em milissegundos
+  
   let diff = now - startDate;
 
-  // Converte
   const msInSecond = 1000;
   const msInMinute = msInSecond * 60;
   const msInHour = msInMinute * 60;
@@ -45,30 +41,24 @@ function updateDayCounter() {
 
   let days = Math.floor(diff / msInDay);
   diff %= msInDay;
-
   let hours = Math.floor(diff / msInHour);
   diff %= msInHour;
-
   let minutes = Math.floor(diff / msInMinute);
   diff %= msInMinute;
-
   let seconds = Math.floor(diff / msInSecond);
 
-  // Exibe bonitinho
-  document.getElementById("day-counter").textContent =
-    `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+  // نص العداد باللغة العربية
+  document.getElementById("day-counter").textContent = `${days} يوم، ${hours} ساعة، ${minutes} دقيقة و ${seconds} ثانية`;
 }
 
-// Atualiza a cada segundo
 setInterval(updateDayCounter, 1000);
 updateDayCounter();
-
 
 // --------- FUNÇÃO GENÉRICA DE NAVEGAÇÃO --------- //
 function createNavigator(containerSelector, navSelector, perPage = 5) {
   const items = document.querySelectorAll(`${containerSelector} .letter`);
   const nav = document.querySelector(navSelector);
-  if (!items.length || !nav) return; // nada a fazer se não tiver itens
+  if (!items.length || !nav) return;
 
   let currentIndex = 0;
   let currentPage = 0;
@@ -80,7 +70,7 @@ function createNavigator(containerSelector, navSelector, perPage = 5) {
 
     if (currentPage > 0) {
       const prevBtn = document.createElement("button");
-      prevBtn.textContent = "«";
+      prevBtn.textContent = "السابق";
       prevBtn.classList.add("letter-btn");
       prevBtn.addEventListener("click", () => {
         currentPage--;
@@ -100,7 +90,7 @@ function createNavigator(containerSelector, navSelector, perPage = 5) {
 
     if (end < items.length) {
       const nextBtn = document.createElement("button");
-      nextBtn.textContent = "»";
+      nextBtn.textContent = "التالي";
       nextBtn.classList.add("letter-btn");
       nextBtn.addEventListener("click", () => {
         currentPage++;
@@ -117,16 +107,17 @@ function createNavigator(containerSelector, navSelector, perPage = 5) {
     renderButtons();
   }
 
-  // inicia
   showItem(0);
 }
+
 // Navegação para Cartas
 createNavigator(".cartas", ".cartas-nav");
-
 // Navegação para Leia-me
 createNavigator(".leias", ".leias-nav");
-const userPassword = prompt("دخلي كلمه السر:");
+
+// كلمة السر
+const userPassword = prompt("دخلي كلمة السر:");
 if (userPassword !== "ro7 2lb m7md") {
-  alert("كلمه السر غير صحيحه!");
-  document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20%'>كلمه السر خطأو</h2>"; 
-                                                                                                      { 
+  alert("كلمة السر غير صحيحة!");
+  document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20%'>كلمة السر خطأ</h2>";
+}
