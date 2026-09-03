@@ -234,3 +234,76 @@ body::before {
   background: #ff4d6d;
   color: white;
 }
+/* نافذة كلمة السر المخصصة */
+.custom-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 182, 193, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.custom-modal-content {
+  background: #fff0f3;
+  border: 3px solid #ff4d6d;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 6px 6px 0px #ff758f;
+  max-width: 350px;
+  width: 90%;
+}
+
+.bear-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-modal-content h3 {
+  color: #c9184a;
+  margin-bottom: 1rem;
+}
+
+.custom-modal-content input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ff85a1;
+  border-radius: 10px;
+  outline: none;
+  font-family: inherit;
+  text-align: center;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.custom-modal-content input:focus {
+  border-color: #ff4d6d;
+}
+
+.custom-modal-content button {
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #a4133c;
+  transition: transform 0.1s;
+}
+
+.custom-modal-content button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.error-msg {
+  color: #d00000;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+}
