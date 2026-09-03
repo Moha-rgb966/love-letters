@@ -163,6 +163,14 @@ body {
   color: white;
 }
 
+/* إخفاء كل محتويات التبويبات افتراضياً */
+.tab-content {
+  display: none;
+}
 
+/* إظهار التبويب النشط فقط */
+.tab-content.active {
+  display: block;
+}
 
 /*# sourceMappingURL=style.css.map */
