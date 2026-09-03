@@ -1,37 +1,50 @@
-// --------- TABS --------- //
-const tabs = {
-  $buttons: document.querySelectorAll('.tab-menu__button'),
-  $panels: document.querySelectorAll('.tab-panel'),
-  init() {
-    for (let i = 0; i < this.$buttons.length; i++) {
-      let button = this.$buttons[i];
-      let panel = this.$panels[i];
-      button.addEventListener('click', () => {
-        document.querySelector('.tab-menu__button.is-active').classList.remove('is-active');
-        document.querySelector('.tab-panel.is-active').classList.remove('is-active');
-        button.classList.add('is-active');
-        panel.classList.add('is-active');
-      });
-    }
-  }
-};
-tabs.init();
+// --------- 1. كلمة السر --------- //
+const userPassword = prompt("دخلي كلمة السر:");
+if (userPassword !== "ro7 2lb m7md") {
+  alert("كلمة السر غير صحيحة!");
+  document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20%'>كلمة السر خطأ</h2>";
+}
 
-// --------- MODAL --------- //
+// --------- 2. التنقل بين التبويبات (الزراير) --------- //
+const tabButtons = document.querySelectorAll('.tab-menu__button');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    // إزالة التحديد عن كل الأزرار
+    tabButtons.forEach(btn => btn.classList.remove('is-active'));
+    // إخفاء جميع الأقسام
+    tabPanels.forEach(panel => panel.classList.remove('is-active'));
+
+    // تفعيل الزر المضروب عليه والقسم المقابل له
+    button.classList.add('is-active');
+    if (tabPanels[index]) {
+      tabPanels[index].classList.add('is-active');
+    }
+  });
+});
+
+// --------- 3. فتح وإغلاق الرسالة (المودال) --------- //
 const modalClose = document.querySelector('.modal-close-button');
 const mainContent = document.getElementById("main-content");
 const startButton = document.getElementById("start-button");
 
-modalClose.addEventListener('click', () => {
-  mainContent.classList.remove("hidden");
-  startButton.classList.add("hidden");
-});
+if (startButton) {
+  startButton.addEventListener('click', () => {
+    mainContent.classList.remove("hidden");
+  });
+}
 
-// --------- CONTADOR --------- //
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    mainContent.classList.add("hidden");
+  });
+}
+
+// --------- 4. العداد الزمني --------- //
 function updateDayCounter() {
   const startDate = new Date(2025, 11, 27, 10, 34, 15);
   const now = new Date();
-  
   let diff = now - startDate;
 
   const msInSecond = 1000;
@@ -47,14 +60,16 @@ function updateDayCounter() {
   diff %= msInMinute;
   let seconds = Math.floor(diff / msInSecond);
 
-  // نص العداد باللغة العربية
-  document.getElementById("day-counter").textContent = `${days} يوم، ${hours} ساعة، ${minutes} دقيقة و ${seconds} ثانية`;
+  const counterElement = document.getElementById("day-counter");
+  if (counterElement) {
+    counterElement.textContent = `${days} يوم، ${hours} ساعة، ${minutes} دقيقة و ${seconds} ثانية`;
+  }
 }
 
 setInterval(updateDayCounter, 1000);
 updateDayCounter();
 
-// --------- FUNÇÃO GENÉRICA DE NAVEGAÇÃO --------- //
+// --------- 5. التنقل داخل القوائم (الرسائل والتعليمات) --------- //
 function createNavigator(containerSelector, navSelector, perPage = 5) {
   const items = document.querySelectorAll(`${containerSelector} .letter`);
   const nav = document.querySelector(navSelector);
@@ -110,36 +125,6 @@ function createNavigator(containerSelector, navSelector, perPage = 5) {
   showItem(0);
 }
 
-// Navegação para Cartas
+// تشغيل تنقل الرسائل
 createNavigator(".cartas", ".cartas-nav");
-// Navegação para Leia-me
 createNavigator(".leias", ".leias-nav");
-
-// كلمة السر
-const userPassword = prompt("دخلي كلمة السر:");
-if (userPassword !== "ro7 2lb m7md") {
-  alert("كلمة السر غير صحيحة!");
-  document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20%'>كلمة السر خطأ</h2>";
-}
-const tabButtons = document.querySelectorAll('.tab-menu__button');
-const tabContents = document.querySelectorAll('.tab-content');
-
-tabButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // 1. إخفاء جميع الأقسام
-    tabContents.forEach(content => content.classList.remove('active'));
-    
-    // 2. إزالة التحديد عن جميع الأزرار
-    tabButtons.forEach(btn => btn.classList.remove('active'));
-
-    // 3. إظهار القسم المطلوب بناءً على data-target للزر
-    const targetId = button.getAttribute('data-target');
-    const targetSection = document.getElementById(targetId);
-    
-    if (targetSection) {
-      targetSection.classList.add('active');
-    }
-    
-    button.classList.add('active');
-  });
-});
