@@ -345,3 +345,27 @@ body::before {
     transform: translateX(-20px) rotate(-15deg);
   }
 }
+/* شبكة بحبك بـ 100 لغة */
+.love-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 15px;
+  background: #fff0f3;
+  border: 2px solid #ff85a1;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.love-grid span {
+  background: #ffffff;
+  border: 1px solid #ff4d6d;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #c9184a;
+  text-align: center;
+  box-shadow: 2px 2px 0px #ff758f;
+}
