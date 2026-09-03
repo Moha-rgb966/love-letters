@@ -1,8 +1,22 @@
-// --------- 1. كلمة السر --------- //
-const userPassword = prompt("دخلي كلمة السر:");
-if (userPassword !== "ro7 2lb m7md") {
-  alert("كلمة السر غير صحيحة!");
-  document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:20%'>كلمة السر خطأ</h2>";
+// --------- 1. كلمة السر المخصصة --------- //
+const passModal = document.getElementById("password-modal");
+const passInput = document.getElementById("password-input");
+const passSubmit = document.getElementById("password-submit-btn");
+const passError = document.getElementById("password-error");
+
+function checkPassword() {
+  if (passInput.value === "ro7 2lb m7md") {
+    passModal.classList.add("hidden"); // إخفاء النافذة ودخول الموقع
+  } else {
+    passError.classList.remove("hidden"); // إظهار رسالة الخطأ
+  }
+}
+
+if (passSubmit) {
+  passSubmit.addEventListener("click", checkPassword);
+  passInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") checkPassword();
+  });
 }
 
 // --------- التنقل بين التبويبات (الزراير) --------- //
