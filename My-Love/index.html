@@ -8,70 +8,42 @@
   <link rel="icon" type="image/png" href="img/image-removebg-preview.png">
 </head>
 <body>
-  <!-- زر فتح الرسالة -->
-  <a href="#launch-modal" id="start-button" class="modal-button" aria-label="فتح الرسالة">:> افتحي الرسالة</a>
 
-  <!-- النافذة المنبثقة -->
-  <div id="launch-modal" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close-button" aria-label="إغلاق النافذة">&#x2715;</a>
-      <h2>جاهزة؟</h2>
-      <p>حقيقي بحبك من جوايا جدا و مش عايزك تزعلي مني ع الي حصل امبارح بس انا حقيقي زعلت منك جدا و كنت ناوي متكلمش و اسكت بالايام بس حسيت اني هكون بخسرك لو عملت كده ونتي عارفه انا بحبك قد ايه و عمرك متهوني عليا ولا اخلي مشكله تطور لانها تخسرنا بعض ان شاء الله كل الي جاي هيكون احسن من الي فات و هنعديه بكل حاجه فيه و ربنا هيكرمنا سوا ان شاء الله بحبك ينور عيني.</p>
-    </div>
-  </div>
+  <!-- القائمة والأزرار بالخارج فوق -->
+  <header>
+    <button id="start-button" class="modal-button">:> افتحي الرسالة</button>
+    <nav aria-label="الأقسام">
+      <ul class="tab-menu">
+        <li class="tab-menu__item"><button type="button" class="tab-menu__button is-active" data-target="home">الرئيسية</button></li>
+        <li class="tab-menu__item"><button type="button" class="tab-menu__button" data-target="memories">ذكرياتنا</button></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- المحتوى الرئيسي والأقسام -->
-  <div id="main-content">
-    <header>
-      <h1>رسائل حب</h1>
-      <p>ااتعمل مخصوص عشان خاطر حباحيبو.</p>
-      
-      <nav aria-label="الأقسام">
-  <ul class="tab-menu">
-    <li class="tab-menu__item">
-      <button type="button" class="tab-menu__button is-active" data-target="home">الرئيسية</button>
-    </li>
-    <li class="tab-menu__item">
-      <button type="button" class="tab-menu__button" data-target="memories">ذكرياتنا</button>
-    </li>
-    <li class="tab-menu__item">
-      <button type="button" class="tab-menu__button" data-target="when">اقرئي هذا عندما...</button>
-    </li>
-    <li class="tab-menu__item">
-      <button type="button" class="tab-menu__button" data-target="letters">الرسائل</button>
-    </li>
-    <li class="tab-menu__item">
-      <button type="button" class="tab-menu__button" data-target="counter">العداد</button>
-    </li>
-  </ul>
-</nav>
-    </header>
-<main>
-    <!-- قسم الرئيسية (نشط افتراضياً) -->
+  <!-- أقسام المحتوى التي تظهر وتختفي -->
+  <main id="main-content" class="hidden">
+    
+    <!-- قسم الرئيسية -->
     <section id="home" class="tab-content active">
       <h2>أهلاً يا حبيبتي</h2>
       <p>ازيك يحبو عامله اي البيدج دي انا عاملها خصيصا عشانك عشان بحبك.</p>
     </section>
 
-    <!-- قسم الذكريات (سيكون مخفياً حتى يضغط الزر) -->
+    <!-- قسم الذكريات -->
     <section id="memories" class="tab-content">
       <h2>ذكرياتنا الجميلة</h2>
       <div class="memory-card">
         <h3>ذكرى يوم ما اتقابلنا</h3>
-        <p>اول يوم شوفتك في اللعبه حقيقي كان يوم حظي كان احلي يوم قضيته ف حياتي عشان عرفني ب اكتر حد حبيتو و بقيت مقدرش استغني عنو في الدنيا كلها</p>
+        <p>اول يوم شوفتك في اللعبه حقيقي كان يوم حظي كان احلي يوم قضيته ف حياتي...</p>
         <span class="date">2025/12/27</span>
       </div>
       <div class="memory-card">
         <h3>ذكرى تانية</h3>
-        <p>الزكريات الي مقدرش انساها ابدا لما بنخرج و نتفسح و نخش السنيما و نتصور دي احلي لحظات حياتي و الي عمري مهنساها ابدا و بحمد ربنا ع الصدفه الي جمعتنا كانت احلي و اجمل صدفه ف حياتي</p>
+        <p>الزكريات الي مقدرش انساها ابدا لما بنخرج و نتفسح و نخش السنيما...</p>
       </div>
     </section>
-  </main>
 
-    <footer>
-      <p>صُنع بحب و عشان خاطر اجمل و احلي حد ف دنيا.</p>
-    </footer>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
