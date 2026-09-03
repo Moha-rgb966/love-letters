@@ -43,16 +43,21 @@ tabButtons.forEach(button => {
 });
 
 // --------- 3. فتح وإغلاق الرسالة (المودال) --------- //
+// --------- 3. فتح وإغلاق الرسالة (المودال) --------- //
 const startButton = document.getElementById("start-button");
 const mainContent = document.getElementById("main-content");
 
 if (startButton) {
   startButton.addEventListener("click", () => {
-    // إظهار محتوى الرسالة
+    // 1. إظهار الرسالة أولاً
+    alert("بحبك جداً يا أحلى حاجة حصلتلي في حياتي! ❤️✨");
+
+    // 2. إظهار محتوى الصفحة الرئيسية بعد إغلاق الرسالة
     if (mainContent) {
       mainContent.classList.remove("hidden");
     }
-    // إخفاء زر الفتح نفسه فقط بعد الضغط عليه
+
+    // 3. إخفاء زر الفتح
     startButton.style.display = "none";
   });
 }
